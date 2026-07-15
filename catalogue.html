@@ -48,23 +48,37 @@ h2{margin:44px 0 4px;font-size:1.4rem}
 .strip a{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:#25D366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:999px;font-weight:700}
 footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82rem}
 .float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;text-decoration:none;padding:14px 18px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.2);display:flex;align-items:center;gap:8px}
+.lang-switch{display:flex;align-items:center;gap:8px}
+.lang-switch select{font-family:inherit;font-weight:700;font-size:.85rem;color:var(--navy);background:#fff;border:1px solid #e7eef5;border-radius:999px;padding:9px 14px;cursor:pointer}
+#google_translate_element{display:none!important}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
 @media(max-width:640px){.logo{font-size:2rem}}
 </style></head>
 <body>
 <div class="wrap">
 <header>
-<div><div class="logo">PRAXOMA</div><div class="tag">Connected Healthcare Platform</div></div>
-<a class="back" href="./index.html">&larr; Home</a>
+<div><div class="logo">PRAXOMA</div><div class="tag" data-i18n="nav_tagline">Connected Healthcare Platform</div></div>
+<div class="lang-switch">
+<div id="google_translate_element"></div>
+<select id="langSelect" aria-label="Language">
+<option value="en">English</option>
+<option value="hi">हिंदी</option>
+<option value="hinglish">Hinglish</option>
+</select>
+<a class="back" data-i18n="back_home" href="./index.html">&larr; Home</a>
+</div>
 </header>
 
 <section class="hero">
-<div class="badge">🧪 Home Collection Available</div>
-<h1>Health Checkup <span class="accent">Catalogue.</span></h1>
-<p>Lab-tested, NABL-partnered diagnostic packages — book any test on WhatsApp and our team handles sample collection, reporting and follow-up.</p>
+<div class="badge" data-i18n="cat_badge">🧪 Home Collection Available</div>
+<h1 data-i18n="cat_hero_title">Health Checkup <span class="accent">Catalogue.</span></h1>
+<p data-i18n="cat_hero_desc">Lab-tested, NABL-partnered diagnostic packages — book any test on WhatsApp and our team handles sample collection, reporting and follow-up.</p>
 </section>
 
-<h2>Popular Full Body Packages</h2>
-<div class="sub">Compare our most-booked whole body health packages.</div>
+<h2 data-i18n="h2_popular">Popular Full Body Packages</h2>
+<div class="sub" data-i18n="sub_popular">Compare our most-booked whole body health packages.</div>
 <div class="grid packages">
 
 <div class="pcard">
@@ -72,7 +86,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Essential Wellness — 65 Parameters</h3>
 <ul><li>Complete Blood Count (CBC Ext)</li><li>Liver Panel (LFT)</li><li>Kidney Panel-2</li><li>Lipid Profile</li><li>Thyroid Profile (T3, T4, TSH)</li><li>Glucose (Fasting)</li></ul>
 <div class="price-row"><span class="mrp">₹1500</span><span class="camp">₹599</span></div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20the%20Essential%20Wellness%20Package%20(P414)%20-%20%E2%82%B9599">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20the%20Essential%20Wellness%20Package%20(P414)%20-%20%E2%82%B9599">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -80,7 +94,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Accuprobe 1.2 (Accu-T D Plus)</h3>
 <ul><li>Complete Blood Count</li><li>Glucose (Fasting)</li><li>HbA1c</li><li>Lipid Profile</li><li>Liver Panel (LFT)</li><li>Thyroid Profile</li><li>Kidney Panel-2</li><li>Iron Panel Basic</li></ul>
 <div class="price-row"><span class="mrp">₹1750</span><span class="camp">₹799</span></div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Accuprobe%201.2%20(P415)%20-%20%E2%82%B9799">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Accuprobe%201.2%20(P415)%20-%20%E2%82%B9799">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -88,7 +102,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Nirogyam Profile-II</h3>
 <ul><li>Complete Blood Count</li><li>Liver, Kidney &amp; Lipid Panels</li><li>Thyroid &amp; HbA1c</li><li>Iron &amp; Vitamin Profile</li><li>Urine R/M, CRP, Rheumatoid Factor</li><li>Microalbumin/Creatinine Ratio</li></ul>
 <div class="price-row"><span class="mrp">₹2500</span><span class="camp">₹999</span></div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Nirogyam%20Profile-II%20(P229)%20-%20%E2%82%B9999">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Nirogyam%20Profile-II%20(P229)%20-%20%E2%82%B9999">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -96,21 +110,21 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Accuprobe 1.5 — Comprehensive</h3>
 <ul><li>All of the above plus:</li><li>Vitamin D &amp; B12</li><li>CRP Quantitative</li><li>Rheumatoid Factor</li><li>Urine R/M</li></ul>
 <div class="price-row"><span class="mrp">₹3500</span><span class="camp">₹1299</span></div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Accuprobe%201.5%20(P451)%20-%20%E2%82%B91299">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Accuprobe%201.5%20(P451)%20-%20%E2%82%B91299">Book on WhatsApp</a>
 </div>
 
 </div>
 
-<h2>Single Test Offers</h2>
-<div class="sub">Just need one test? These are discounted standalone.</div>
+<h2 data-i18n="h2_single">Single Test Offers</h2>
+<div class="sub" data-i18n="sub_single">Just need one test? These are discounted standalone.</div>
 <div class="grid offers">
-<div class="offer"><div class="amt">₹299</div><div class="name">Kidney Function</div><a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Kidney%20Function%20Test%20-%20%E2%82%B9299">Book →</a></div>
-<div class="offer"><div class="amt">₹199</div><div class="name">HbA1c</div><a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20HbA1c%20Test%20-%20%E2%82%B9199">Book →</a></div>
-<div class="offer"><div class="amt">₹149</div><div class="name">Thyroid Function</div><a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Thyroid%20Function%20Test%20-%20%E2%82%B9149">Book →</a></div>
+<div class="offer"><div class="amt">₹299</div><div class="name" data-i18n="offer_kidney">Kidney Function</div><a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Kidney%20Function%20Test%20-%20%E2%82%B9299">Book →</a></div>
+<div class="offer"><div class="amt">₹199</div><div class="name" data-i18n="offer_hba1c">HbA1c</div><a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20HbA1c%20Test%20-%20%E2%82%B9199">Book →</a></div>
+<div class="offer"><div class="amt">₹149</div><div class="name" data-i18n="offer_thyroid">Thyroid Function</div><a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Thyroid%20Function%20Test%20-%20%E2%82%B9149">Book →</a></div>
 </div>
 
-<h2>Specialty Health Panels</h2>
-<div class="sub">Condition-specific and advanced diagnostic panels.</div>
+<h2 data-i18n="h2_specialty">Specialty Health Panels</h2>
+<div class="sub" data-i18n="sub_specialty">Condition-specific and advanced diagnostic panels.</div>
 <div class="grid packages">
 
 <div class="pcard">
@@ -118,7 +132,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Arthritis Mega Profile — 78 Parameters</h3>
 <ul><li>ANA/ANF, ASO, RA Factor, Anti-CCP</li><li>CRP, HLA-B27, C3-Complement</li><li>CBC + ESR, Kidney, Liver &amp; Thyroid Panels</li></ul>
 <div class="price-single">₹4400</div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Arthritis%20Mega%20Profile%20(P505)%20-%20%E2%82%B94400">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Arthritis%20Mega%20Profile%20(P505)%20-%20%E2%82%B94400">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -126,7 +140,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Hepatitis Panel — I</h3>
 <ul><li>Hepatitis A, B &amp; C Antibodies</li><li>HBsAg, HBeAg, HBeAb</li><li>Hepatitis E (IgM)</li></ul>
 <div class="price-single">₹4500</div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Hepatitis%20Panel-I%20(P186)%20-%20%E2%82%B94500">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Hepatitis%20Panel-I%20(P186)%20-%20%E2%82%B94500">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -134,7 +148,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Health + Cardiac Care</h3>
 <ul><li>CBC Ext, HbA1c, Lipid &amp; Liver Panel</li><li>Homocysteine, hs-CRP</li><li>Thyroid, Vitamin B12 &amp; D, Testosterone</li></ul>
 <div class="price-single">₹3800</div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Health%2B%20Cardiac%20Care%20(P511)%20-%20%E2%82%B93800">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20Health%2B%20Cardiac%20Care%20(P511)%20-%20%E2%82%B93800">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -142,7 +156,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Heart Panel I &amp; II</h3>
 <ul><li>hsCRP, ESR, Lipid &amp; Liver Panel</li><li>Homocysteine</li><li>Troponin-I (Qualitative / Quantitative)</li></ul>
 <div class="price-row"><span class="camp">₹2000 – ₹2400</span></div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20a%20Heart%20Panel%20(P662%2FP663)">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20a%20Heart%20Panel%20(P662%2FP663)">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -150,7 +164,7 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>GeneXpert TB Combo</h3>
 <ul><li>Acid Fast Bacilli Stain (ZN Stain)</li><li>TB Expert MTB/RIF (GeneXpert)</li><li>AFB Culture (BACTEC)</li></ul>
 <div class="price-single">₹3500</div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20GeneXpert%20TB%20Combo%20(P661)%20-%20%E2%82%B93500">Book on WhatsApp</a>
+<a data-i18n="book_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20to%20book%20GeneXpert%20TB%20Combo%20(P661)%20-%20%E2%82%B93500">Book on WhatsApp</a>
 </div>
 
 <div class="pcard">
@@ -158,20 +172,20 @@ footer{text-align:center;padding:40px 20px 20px;color:var(--muted);font-size:.82
 <h3>Women's / Men's Hormone Profiles</h3>
 <ul><li>LH, FSH, AMH, TSH, Prolactin</li><li>Estradiol, Testosterone, DHEA-SO4</li><li>Insulin &amp; Glucose (F+PP), Progesterone</li></ul>
 <div class="price-row"><span class="camp">from ₹2200</span></div>
-<a class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20details%20on%20Hormone%20%26%20Fertility%20Panels">Ask on WhatsApp</a>
+<a data-i18n="ask_cta" class="book" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%27d%20like%20details%20on%20Hormone%20%26%20Fertility%20Panels">Ask on WhatsApp</a>
 </div>
 
 </div>
 
 <div class="strip">
-<h2 style="margin:0;color:#fff">Not sure which package you need?</h2>
-<p style="color:#c9d6e3;max-width:520px;margin:10px auto 0">Message our team on WhatsApp with your symptoms or your doctor's advice — we'll recommend the right test and arrange home collection.</p>
-<a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%20need%20help%20choosing%20a%20health%20checkup%20package.">Chat with Praxoma Team</a>
+<h2 style="margin:0;color:#fff" data-i18n="strip_h2">Not sure which package you need?</h2>
+<p style="color:#c9d6e3;max-width:520px;margin:10px auto 0" data-i18n="strip_p">Message our team on WhatsApp with your symptoms or your doctor's advice — we'll recommend the right test and arrange home collection.</p>
+<a href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20I%20need%20help%20choosing%20a%20health%20checkup%20package." data-i18n="strip_cta">Chat with Praxoma Team</a>
 </div>
 
 <footer>
-Prices shown are as listed by our partner NABL-accredited lab and may be revised — final pricing is always confirmed on WhatsApp before booking.<br>
-Home collection facilities available across Saharanpur.
+<span data-i18n="cat_footer">Prices shown are as listed by our partner NABL-accredited lab and may be revised — final pricing is always confirmed on WhatsApp before booking.</span><br>
+<span data-i18n="cat_footer2">Home collection facilities available across Saharanpur.</span>
 </footer>
 </div>
 
@@ -180,6 +194,8 @@ Home collection facilities available across Saharanpur.
 WhatsApp
 </a>
 
+<script src="./i18n.js"></script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
