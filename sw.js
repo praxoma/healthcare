@@ -2,6 +2,7 @@ const CACHE_NAME = "praxoma-cache-v1";
 const ASSETS = [
   "./",
   "./index.html",
+  "./catalogue.html",
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png"
