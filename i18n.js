@@ -1,76 +1,83 @@
-/* Praxoma i18n — Google Translate (English/Hindi) + custom Hinglish layer */
+/* Praxoma i18n — hand-written simple Hindi (Devanagari) + English.
+   Default language is Hindi (this audience is Hindi-first, low/no English).
+   No Google Translate dependency — instant, offline-friendly switching. */
 
 (function () {
   var STORAGE_KEY = "praxoma_lang";
 
-  function setCookie(name, value) {
-    document.cookie = name + "=" + value + ";path=/";
-    document.cookie = name + "=" + value + ";domain=." + location.hostname + ";path=/";
-  }
-  function clearGoogTrans() {
-    setCookie("googtrans", "/en/en");
-  }
-
-  // ---- Hinglish dictionary (headline / CTA level only — test names stay English) ----
-  var HINGLISH = {
-    nav_tagline: "Connected Healthcare Platform",
-    install_btn: "App Install Karein",
-    hero_badge: "🚀 Saharanpur mein Launch Ho Raha Hai",
-    hero_title: "Har Provider.<br><span class=\"accent\">Connected.</span><br>Aasani Se.",
-    hero_desc: "Ek hi platform par trusted labs, doctors, pharmacies aur home care — taaki aapki health coordinate ho, alag-alag apps mein bikhri hui na ho.",
-    hero_cta: "Praxoma Team Se Judein",
-    service_diag_title: "Diagnostics",
-    service_diag_desc: "Trusted laboratory services.",
-    service_home_title: "Home Collection",
-    service_home_desc: "Ghar baithe sample collection.",
-    service_report_title: "Digital Reports",
-    service_report_desc: "Aasan digital access.",
-    service_doctor_title: "Doctor Consults",
-    service_doctor_desc: "Online ya in-clinic, aapke records se connected.",
-    service_med_title: "Medicines",
-    service_med_desc: "Order karein, ghar tak delivery.",
-    service_support_title: "Human Support",
-    service_support_desc: "Real log. Real madad.",
-    cat_strip_title: "Poora Health Checkup Catalogue",
-    cat_strip_desc: "Packages, prices aur specialty panels — sab ek jagah.",
-    cat_strip_btn: "Catalogue Dekhein →",
-    h2_explore: "Diagnostic Services Explore Karein",
-    cat_blood: "Blood",
-    cat_heart: "Heart",
-    cat_diabetes: "Diabetes",
-    cat_thyroid: "Thyroid",
-    cat_vitamin: "Vitamin",
-    cat_kidney: "Kidney",
-    cat_liver: "Liver",
-    cat_senior: "Senior Care",
-    h2_why: "Praxoma Kyun?",
-    why_1: "✓ Sab Kuch Connected",
-    why_2: "✓ Trusted",
-    why_3: "✓ Guided",
-    why_4: "✓ Human Support",
-    footer_h3: "Care ke saath banaya gaya.",
-    footer_p: "Ek connected healthcare service, ek waqt mein.",
-    ios_hint: "📲 Praxoma Install Karein: <b>Share</b> par tap karein, phir <b>Add to Home Screen</b>.",
-    back_home: "← Home",
-    cat_badge: "🧪 Home Collection Available",
-    cat_hero_title: "Health Checkup <span class=\"accent\">Catalogue.</span>",
-    cat_hero_desc: "Lab-tested, NABL-partnered diagnostic packages — WhatsApp par book karein, hamari team sample collection, reporting aur follow-up sambhalegi.",
-    h2_popular: "Popular Full Body Packages",
-    sub_popular: "Hamare sabse zyada book kiye jaane wale whole body health packages compare karein.",
-    h2_single: "Single Test Offers",
-    sub_single: "Sirf ek test chahiye? Ye standalone discounted hain.",
-    h2_specialty: "Specialty Health Panels",
-    sub_specialty: "Condition-specific aur advanced diagnostic panels.",
-    book_cta: "WhatsApp Par Book Karein",
-    ask_cta: "WhatsApp Par Poochein",
-    offer_kidney: "Kidney Function",
-    offer_hba1c: "HbA1c",
-    offer_thyroid: "Thyroid Function",
-    strip_h2: "Sure nahi ki kaunsa package chahiye?",
-    strip_p: "Hamari team ko apne symptoms ya doctor ki advice WhatsApp par bhejein — hum sahi test suggest karke home collection arrange karenge.",
-    strip_cta: "Praxoma Team Se Chat Karein",
-    cat_footer: "Dikhayi gayi prices hamare partner NABL-accredited lab ke anusaar hain aur revise ho sakti hain — final pricing hamesha WhatsApp par confirm ki jaati hai.",
-    cat_footer2: "Home collection facilities Saharanpur mein available hain."
+  // Simple, everyday Hindi — deliberately NOT formal/Sanskritized government-style Hindi
+  var HI = {
+    nav_tagline: "आपकी सेहत, एक ही जगह",
+    install_btn: "ऐप डालें",
+    hero_badge: "🚀 सहारनपुर में शुरू हो रहा है",
+    hero_title: "क्या तकलीफ़ है,<br><span class=\"accent\">बताइए.</span>",
+    hero_desc: "सही जांच, सही डॉक्टर — बताएं और हम मदद करेंगे। गलत या महंगे इलाज में समय और पैसा बर्बाद न करें।",
+    hero_cta: "तकलीफ़ बताएं",
+    call_cta: "कॉल करें",
+    symptom_heading: "आपको क्या तकलीफ़ है?",
+    symptom_sub: "जो भी तकलीफ़ हो, बस बताएं — हम सही जांच बताएंगे।",
+    symptom_fever: "बुखार",
+    symptom_fatigue: "थकान / कमज़ोरी",
+    symptom_stomach: "पेट की तकलीफ़",
+    symptom_pain: "जोड़ों / शरीर में दर्द",
+    symptom_breath: "सांस फूलना",
+    symptom_women: "महिलाओं की सेहत",
+    symptom_senior: "बुज़ुर्गों की जांच",
+    symptom_pregnancy: "गर्भावस्था",
+    symptom_fullcheck: "पूरी जांच चाहिए",
+    symptom_unsure: "पता नहीं, बस पूछना है",
+    h2_why: "Praxoma पर भरोसा क्यों करें",
+    why_1: "✓ सही जांच की सलाह, मुफ़्त",
+    why_2: "✓ गलत इलाज से बचाव",
+    why_3: "✓ जांचे-परखे डॉक्टर और लैब",
+    why_4: "✓ घर बैठे मदद",
+    occ_heading: "खास मौकों पर सेहत का तोहफ़ा",
+    occ_sub: "बीमारी का इंतज़ार क्यों — इन मौकों पर अपनों की सेहत का ख्याल रखें।",
+    occ_birthday_title: "जन्मदिन सेहत तोहफ़ा",
+    occ_birthday_desc: "खुद को या परिवार को इस साल जन्मदिन पर सेहत का तोहफ़ा दें।",
+    occ_anniv_title: "सालगिरह कपल पैकेज",
+    occ_anniv_desc: "एक दूसरे का ख्याल रखें — साथ में जांच कराएं।",
+    occ_parents_title: "माता-पिता की सेहत, दूर से",
+    occ_parents_desc: "बाहर रहते हैं? यहां से अपने माता-पिता की जांच करवाएं, हम पूरा ख्याल रखेंगे।",
+    occ_festival_title: "त्योहार सेहत कैंप",
+    occ_festival_desc: "त्योहार से पहले पूरे परिवार की जांच — खास कीमत पर।",
+    occ_cta: "पूछें",
+    service_diag_title: "जांच (टेस्ट)",
+    service_diag_desc: "भरोसेमंद लैब से टेस्ट।",
+    service_home_title: "घर पर सैंपल",
+    service_home_desc: "घर बैठे सैंपल लिया जाएगा।",
+    service_report_title: "रिपोर्ट मोबाइल पर",
+    service_report_desc: "रिपोर्ट सीधे फोन पर मिलेगी।",
+    service_doctor_title: "डॉक्टर से बात",
+    service_doctor_desc: "फोन पर या क्लिनिक में डॉक्टर से मिलें।",
+    service_med_title: "दवाई घर पर",
+    service_med_desc: "दवाई मंगवाएं, घर पर पाएं।",
+    service_support_title: "मदद के लिए इंसान",
+    service_support_desc: "हर सवाल का जवाब एक असली इंसान देगा।",
+    cat_small_link: "पहले से पता है कौन सा टेस्ट चाहिए? रेट लिस्ट देखें →",
+    footer_h3: "पूरी ईमानदारी से बनाया गया।",
+    footer_p: "एक-एक करके, हर सेहत सेवा जोड़ रहे हैं।",
+    ios_hint: "📲 Praxoma डालने के लिए: <b>Share</b> दबाएं, फिर <b>Add to Home Screen</b> दबाएं।",
+    back_home: "← घर",
+    cat_badge: "🧪 घर पर सैंपल की सुविधा",
+    cat_hero_title: "टेस्ट और <span class=\"accent\">रेट लिस्ट.</span>",
+    cat_hero_desc: "भरोसेमंद, NABL-मान्यता प्राप्त लैब के टेस्ट — WhatsApp पर बुक करें, हम घर आकर सैंपल लेंगे और रिपोर्ट पहुंचाएंगे।",
+    h2_popular: "सबसे ज़्यादा बुक होने वाले पैकेज",
+    sub_popular: "पूरे शरीर की जांच वाले पैकेज यहां देखें।",
+    h2_single: "सिर्फ एक टेस्ट चाहिए?",
+    sub_single: "इन टेस्ट पर खास छूट है।",
+    h2_specialty: "खास बीमारी के लिए टेस्ट",
+    sub_specialty: "किसी खास तकलीफ़ या बीमारी से जुड़े टेस्ट।",
+    book_cta: "WhatsApp पर बुक करें",
+    ask_cta: "WhatsApp पर पूछें",
+    offer_kidney: "किडनी टेस्ट",
+    offer_hba1c: "शुगर (HbA1c)",
+    offer_thyroid: "थायरॉइड टेस्ट",
+    strip_h2: "समझ नहीं आ रहा कौन सा टेस्ट कराएं?",
+    strip_p: "अपनी तकलीफ़ या डॉक्टर की सलाह हमें WhatsApp पर भेजें — हम सही टेस्ट बताएंगे और घर पर सैंपल लेने आएंगे।",
+    strip_cta: "Praxoma टीम से बात करें",
+    cat_footer: "यहां दिखाए गए दाम हमारी पार्टनर लैब के अनुसार हैं और बदल सकते हैं — पक्का दाम हमेशा WhatsApp पर बुकिंग के समय बताया जाएगा।",
+    cat_footer2: "सहारनपुर में हर जगह घर पर सैंपल लेने की सुविधा है।"
   };
 
   function cacheOriginals() {
@@ -79,63 +86,36 @@
     });
   }
 
-  function applyHinglish() {
+  function applyLang(lang) {
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
-      if (HINGLISH[key]) el.innerHTML = HINGLISH[key];
+      if (lang === "hi" && HI[key]) {
+        el.innerHTML = HI[key];
+      } else if (el.dataset.origHtml !== undefined) {
+        el.innerHTML = el.dataset.origHtml;
+      }
     });
+    document.documentElement.setAttribute("lang", lang === "hi" ? "hi" : "en");
   }
 
-  function restoreEnglish() {
-    document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      if (el.dataset.origHtml !== undefined) el.innerHTML = el.dataset.origHtml;
-    });
-  }
-
-  function setLanguage(lang, reload) {
+  function setLanguage(lang) {
     localStorage.setItem(STORAGE_KEY, lang);
-    if (lang === "hinglish") {
-      clearGoogTrans();
-      restoreEnglish();
-      applyHinglish();
-    } else if (lang === "hi") {
-      restoreEnglish();
-      setCookie("googtrans", "/en/hi");
-      if (reload) location.reload();
-    } else {
-      restoreEnglish();
-      clearGoogTrans();
-      if (reload) location.reload();
-    }
-    var sel = document.getElementById("langSelect");
-    if (sel) sel.value = lang;
+    applyLang(lang);
+    document.querySelectorAll(".lang-pill").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
   }
 
-  window.praxomaSetLanguage = function (lang) {
-    setLanguage(lang, true);
-  };
+  window.praxomaSetLanguage = setLanguage;
 
   document.addEventListener("DOMContentLoaded", function () {
     cacheOriginals();
-    var saved = localStorage.getItem(STORAGE_KEY) || "en";
-    var sel = document.getElementById("langSelect");
-    if (sel) {
-      sel.value = saved;
-      sel.addEventListener("change", function (e) {
-        window.praxomaSetLanguage(e.target.value);
+    var saved = localStorage.getItem(STORAGE_KEY) || "hi"; // Hindi-first audience — default to Hindi
+    setLanguage(saved);
+    document.querySelectorAll(".lang-pill").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setLanguage(btn.getAttribute("data-lang"));
       });
-    }
-    if (saved === "hinglish") {
-      applyHinglish();
-    }
-    // for "hi", the googtrans cookie (set on a previous selection) is already
-    // in place before Google's script runs, so the page loads pre-translated.
+    });
   });
 })();
-
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    { pageLanguage: "en", includedLanguages: "en,hi", autoDisplay: false },
-    "google_translate_element"
-  );
-}
