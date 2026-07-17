@@ -1,237 +1,164 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Praxoma | Connected Healthcare Platform</title>
-
-<!-- PWA -->
-<link rel="manifest" href="./manifest.json">
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Praxoma — Beta | Healthcare Navigation</title>
 <meta name="theme-color" content="#0f2d52">
-<link rel="icon" href="./icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Praxoma">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0f2d52;--teal:#19b7a8;--bg:#f5f9fc;--muted:#6b7d93}
-*{box-sizing:border-box}body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,#fff,#f4f9fc);color:var(--navy);font-size:17px}
-.wrap{max-width:1140px;margin:auto;padding:28px}
-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.logo{font-size:2.3rem;font-weight:800;letter-spacing:-1px}
-.tag{color:var(--muted);font-weight:600}
-.install-btn{display:none;align-items:center;gap:8px;background:var(--navy);color:#fff;border:none;padding:13px 20px;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer;font-family:inherit;min-height:48px}
-.install-btn svg{width:18px;height:18px}
-.hero{padding:48px 0}
-.hero h1{font-size:clamp(2.7rem,8vw,5rem);line-height:1.05;margin:0}
-.hero .accent{color:var(--teal)}
-.hero p{max-width:640px;color:var(--muted);font-size:1.15rem;line-height:1.7}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:18px 28px;background:linear-gradient(135deg,#21c9b8,#12a5a1);color:#fff;text-decoration:none;border-radius:16px;font-weight:700;font-size:1.1rem;min-height:56px}
-.btn.call{background:var(--navy)}
-.btn svg{width:22px;height:22px;flex-shrink:0}
-.badge{display:inline-block;margin-top:18px;background:#eaf9f7;color:#0b7d73;padding:9px 16px;border-radius:999px;font-weight:700;font-size:1rem}
-.grid{display:grid;gap:18px}
-.services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:38px 0}
-.card,.cat,.why{background:#fff;border:1px solid #e7eef5;border-radius:22px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.05)}
-.card h3,.cat b{display:flex;align-items:center;gap:10px}
-.card h3{font-size:1.15rem}
-.card p{font-size:1.02rem}
-.cats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:18px}
-.cat{text-align:center}
-.cat .i{display:flex;align-items:center;justify-content:center;margin-bottom:8px}
-.cat b{justify-content:center;font-size:1.05rem}
-.ic{width:26px;height:26px;color:var(--teal);flex-shrink:0}
-.cat .ic{width:36px;height:36px}
-.whywrap{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:18px}
-.why{font-size:1.08rem;font-weight:700}
-.chips{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-.chip{background:#fff;border:2px solid #e7eef5;border-radius:16px;padding:16px 14px;text-align:center;font-weight:700;font-size:1rem;color:var(--navy);text-decoration:none;display:flex;align-items:center;justify-content:center;min-height:56px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
-.chip:active,.chip:hover{border-color:var(--teal);background:#f0fbfa}
-.chip-alt{background:var(--navy);color:#fff;border-color:var(--navy)}
-.occasions{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.occ-card{background:#fff;border:1px solid #e7eef5;border-radius:22px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.05);text-align:center}
-.occ-icon{font-size:2.2rem;margin-bottom:8px}
-.occ-card h3{font-size:1.08rem;margin:0 0 8px}
-.occ-card p{color:var(--muted);font-size:.95rem;line-height:1.5;margin:0 0 16px;min-height:48px}
-.occ-card a{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#21c9b8,#12a5a1);color:#fff;text-decoration:none;padding:12px 24px;border-radius:999px;font-weight:700;font-size:.95rem;min-height:44px}
-.cat-small-link{color:var(--muted);text-decoration:underline;font-size:.95rem;font-weight:600}
-h2{font-size:1.55rem}
-footer{text-align:center;padding:48px 20px;color:var(--muted);font-size:1rem}
-.float{position:fixed;right:18px;bottom:80px;background:#25D366;color:#fff;text-decoration:none;padding:16px 20px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.2);display:flex;align-items:center;gap:8px;font-size:1.05rem;min-height:52px}
-.float-call{position:fixed;right:18px;bottom:18px;background:var(--navy);color:#fff;text-decoration:none;padding:16px 20px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.2);display:flex;align-items:center;gap:8px;font-size:1.05rem;min-height:52px}
-.ios-hint{display:none;position:fixed;left:18px;right:18px;bottom:148px;max-width:420px;margin:auto;background:var(--navy);color:#fff;padding:14px 16px;border-radius:16px;font-size:.9rem;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.25);z-index:20}
-.ios-hint button{background:none;border:none;color:#9fd8d1;font-weight:700;font-size:1.1rem;cursor:pointer;margin-left:auto}
-.lang-switch{display:flex;align-items:center;gap:8px;background:#eef3f7;padding:5px;border-radius:999px}
-.lang-pill{font-family:inherit;font-weight:700;font-size:.95rem;color:var(--muted);background:transparent;border:none;border-radius:999px;padding:10px 18px;cursor:pointer;min-height:44px}
+:root{--navy:#0f2d52;--teal:#19b7a8;--muted:#6b7d93}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,#fff,#f4f9fc);color:var(--navy);font-size:17px}
+.wrap{max-width:760px;margin:auto;padding:26px 24px 40px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:44px;height:44px;border-radius:13px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mark svg{width:26px;height:26px}
+.wordmark{font-weight:800;font-size:1.35rem;letter-spacing:-0.5px}
+.beta-badge{display:inline-block;background:#fdeecd;color:#8a5a00;font-weight:700;font-size:.72rem;padding:3px 9px;border-radius:999px;vertical-align:middle;margin-left:8px}
+.lang-switch{display:flex;gap:6px;background:#eef3f7;padding:5px;border-radius:999px}
+.lang-pill{font-family:inherit;font-weight:700;font-size:.88rem;color:var(--muted);background:transparent;border:none;border-radius:999px;padding:8px 15px;cursor:pointer;min-height:40px}
 .lang-pill.active{background:var(--navy);color:#fff}
-@media(max-width:640px){.logo{font-size:2rem}body{font-size:16px}.float{bottom:80px}}
-</style></head>
+
+.hero{padding:38px 0 8px}
+.hero h1{font-size:clamp(2rem,7vw,2.7rem);line-height:1.15;margin:0 0 14px}
+.hero h1 .accent{color:var(--teal)}
+.hero p{color:var(--muted);font-size:1.08rem;line-height:1.6;margin:0 0 8px}
+.tagline{font-style:italic;color:var(--navy);font-size:1rem;margin:14px 0 26px;padding-left:14px;border-left:3px solid var(--teal)}
+
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:16px 24px;border-radius:15px;font-weight:700;font-size:1.02rem;text-decoration:none;min-height:52px}
+.btn.wa{background:linear-gradient(135deg,#21c9b8,#12a5a1);color:#fff}
+.btn.call{background:var(--navy);color:#fff}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
+.step{background:#fff;border:1px solid #e7eef5;border-radius:16px;padding:16px 12px;text-align:center}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.step b{display:block;font-size:.95rem;margin-bottom:4px}
+.step span{font-size:.82rem;color:var(--muted);line-height:1.4}
+
+h2{font-size:1.2rem;margin:0 0 4px}
+.sub{color:var(--muted);font-size:.92rem;margin-bottom:14px}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:30px}
+.chip{background:#fff;border:2px solid #e7eef5;border-radius:14px;padding:13px 10px;text-align:center;font-weight:700;font-size:.92rem;color:var(--navy);text-decoration:none;min-height:48px;display:flex;align-items:center;justify-content:center}
+.chip-alt{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+.not-strip{background:#fff;border:1px solid #e7eef5;border-radius:16px;padding:18px 20px;margin-bottom:30px;font-size:.9rem;color:var(--muted);line-height:1.6}
+.not-strip b{color:var(--navy)}
+
+.beta-note{background:#fdeecd;border-radius:16px;padding:16px 18px;font-size:.88rem;color:#7a5200;line-height:1.55;margin-bottom:26px}
+
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding-top:10px;border-top:1px solid #e7eef5}
+</style>
+</head>
 <body>
 <div class="wrap">
+
 <header>
-<div><div class="logo">PRAXOMA</div><div class="tag" data-i18n="nav_tagline">Connected Healthcare Platform</div></div>
+<div class="brand">
+<div class="mark">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#19B7A8"/><path d="M12 7v10M7 12h10" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/></svg>
+</div>
+<div><span class="wordmark">PRAXOMA</span><span class="beta-badge" data-i18n="beta_badge">BETA</span></div>
+</div>
 <div class="lang-switch">
-<button class="lang-pill" data-lang="hi">हिंदी</button>
+<button class="lang-pill active" data-lang="hi">हिंदी</button>
 <button class="lang-pill" data-lang="en">English</button>
-<button class="install-btn" id="installBtn">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg>
-<span data-i18n="install_btn">Install App</span>
-</button>
 </div>
 </header>
+
 <section class="hero">
-<div class="badge" data-i18n="hero_badge">🚀 Launching in Saharanpur</div>
-<h1 data-i18n="hero_title">What's Bothering You?<br><span class="accent">Tell Us.</span></h1>
-<p data-i18n="hero_desc">Right test, right doctor — just tell us what's wrong. Don't waste time and money on the wrong treatment.</p>
+<h1 data-i18n="hero_title">क्या तकलीफ़ है,<br><span class="accent">बताइए.</span></h1>
+<p data-i18n="hero_desc">हम टेस्ट नहीं बेचते — हम आपको सही डॉक्टर और सही जांच तक पहुंचाते हैं। जैसे Google Maps रास्ता दिखाता है, वैसे ही Praxoma आपकी सेहत का रास्ता दिखाता है।</p>
+<div class="tagline" data-i18n="tagline">"हम बीमारी नहीं पहचानते। हम उलझन दूर करते हैं।"</div>
+
 <div class="cta-row">
-<a class="btn" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20ye%20takleef%20hai%20-%20">
+<a class="btn wa" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20ye%20takleef%20hai%20-%20">
 <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.1-1.34A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Z" stroke="#fff" stroke-width="1.4"/></svg>
-<span data-i18n="hero_cta">Tell Us What's Wrong</span>
+<span data-i18n="wa_cta">WhatsApp पर बताएं</span>
 </a>
 <a class="btn call" href="tel:+917500663006">
 <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-<span data-i18n="call_cta">Call Now</span>
+<span data-i18n="call_cta">कॉल करें</span>
 </a>
 </div>
 </section>
 
-<h2 data-i18n="symptom_heading">What's Bothering You?</h2>
-<div class="sub" data-i18n="symptom_sub" style="margin-bottom:18px">Tap what fits, and we'll guide you from there.</div>
-<div class="grid chips">
-<a class="chip" data-i18n="symptom_fever" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20bukhar%20hai%2C%20sahi%20test%20batayein.">Fever</a>
-<a class="chip" data-i18n="symptom_fatigue" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20thakan%2Fkamzori%20rehti%20hai%2C%20sahi%20test%20batayein.">Fatigue / Weakness</a>
-<a class="chip" data-i18n="symptom_stomach" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20pet%20ki%20takleef%20hai%2C%20sahi%20test%20batayein.">Stomach Issues</a>
-<a class="chip" data-i18n="symptom_pain" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20jodon%2Fshareer%20mein%20dard%20hai%2C%20sahi%20test%20batayein.">Body / Joint Pain</a>
-<a class="chip" data-i18n="symptom_breath" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20saans%20foolti%20hai%2C%20sahi%20test%20batayein.">Breathlessness</a>
-<a class="chip" data-i18n="symptom_women" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20mahilaon%20ki%20sehat%20se%20juda%20sawaal%20hai.">Women's Health</a>
-<a class="chip" data-i18n="symptom_senior" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20bujurgon%20ki%20jaanch%20karani%20hai.">Elderly Checkup</a>
-<a class="chip" data-i18n="symptom_pregnancy" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20garbhavastha%20se%20juda%20sawaal%20hai.">Pregnancy</a>
-<a class="chip" data-i18n="symptom_fullcheck" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20poori%20body%20checkup%20chahiye.">Full Body Checkup</a>
-<a class="chip chip-alt" data-i18n="symptom_unsure" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20pata%20nahi%20kya%20takleef%20hai%2C%20bas%20poochna%20hai.">Not Sure / Just Want to Ask</a>
+<div class="steps">
+<div class="step"><div class="n">1</div><b data-i18n="step1_t">सुनते हैं</b><span data-i18n="step1_d">आपकी तकलीफ़ अपनी भाषा में</span></div>
+<div class="step"><div class="n">2</div><b data-i18n="step2_t">रास्ता बताते हैं</b><span data-i18n="step2_d">सही डॉक्टर या टेस्ट कौन सा</span></div>
+<div class="step"><div class="n">3</div><b data-i18n="step3_t">साथ रहते हैं</b><span data-i18n="step3_d">जांच से रिपोर्ट तक मदद</span></div>
 </div>
 
-<h2 style="margin-top:48px" data-i18n="h2_why">Why Trust Praxoma</h2>
-<div class="grid whywrap">
-<div class="why" data-i18n="why_1">✓ Free Guidance on the Right Test</div>
-<div class="why" data-i18n="why_2">✓ Avoid Wrong Treatment</div>
-<div class="why" data-i18n="why_3">✓ Verified Doctors &amp; Labs</div>
-<div class="why" data-i18n="why_4">✓ Help From Home</div>
+<h2 data-i18n="symptom_h">आपको क्या तकलीफ़ है?</h2>
+<div class="sub" data-i18n="symptom_sub">जो भी हो, बस बताएं — हम रास्ता दिखाएंगे।</div>
+<div class="chips">
+<a class="chip" data-i18n="s_fever" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20bukhar%20hai%2C%20sahi%20rasta%20batayein.">बुखार</a>
+<a class="chip" data-i18n="s_fatigue" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20thakan%2Fkamzori%20rehti%20hai.">थकान / कमज़ोरी</a>
+<a class="chip" data-i18n="s_stomach" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20pet%20ki%20takleef%20hai.">पेट की तकलीफ़</a>
+<a class="chip" data-i18n="s_pain" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20jodon%2Fshareer%20mein%20dard%20hai.">जोड़ों / शरीर में दर्द</a>
+<a class="chip" data-i18n="s_women" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20mahilaon%20ki%20sehat%20se%20juda%20sawaal%20hai.">महिलाओं की सेहत</a>
+<a class="chip chip-alt" data-i18n="s_unsure" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20pata%20nahi%20kya%20takleef%20hai%2C%20bas%20poochna%20hai.">पता नहीं, बस पूछना है</a>
 </div>
 
-<h2 style="margin-top:48px" data-i18n="occ_heading">Health Gifts for Special Moments</h2>
-<div class="sub" data-i18n="occ_sub">Why wait for illness — care for your loved ones on these occasions.</div>
-<div class="grid occasions">
-<div class="occ-card">
-<div class="occ-icon">🎂</div>
-<h3 data-i18n="occ_birthday_title">Birthday Health Gift</h3>
-<p data-i18n="occ_birthday_desc">Give yourself or family a health gift this birthday.</p>
-<a data-i18n="occ_cta" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20birthday%20health%20package%20ke%20baare%20mein%20poochna%20hai.">Ask</a>
-</div>
-<div class="occ-card">
-<div class="occ-icon">💍</div>
-<h3 data-i18n="occ_anniv_title">Anniversary Couple Package</h3>
-<p data-i18n="occ_anniv_desc">Take care of each other — get checked together.</p>
-<a data-i18n="occ_cta" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20anniversary%20couple%20package%20ke%20baare%20mein%20poochna%20hai.">Ask</a>
-</div>
-<div class="occ-card">
-<div class="occ-icon">🏡</div>
-<h3 data-i18n="occ_parents_title">Parents' Health, From Afar</h3>
-<p data-i18n="occ_parents_desc">Living away from home? Get your parents checked here — we'll take care of the rest.</p>
-<a data-i18n="occ_cta" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20main%20bahar%20rehta%2Frehti%20hoon%2C%20apne%20parents%20ki%20jaanch%20karani%20hai.">Ask</a>
-</div>
-<div class="occ-card">
-<div class="occ-icon">🪔</div>
-<h3 data-i18n="occ_festival_title">Festival Health Camp</h3>
-<p data-i18n="occ_festival_desc">Whole-family checkup before the festival — at a special price.</p>
-<a data-i18n="occ_cta" href="https://wa.me/917500663006?text=Hello%20Praxoma%2C%20mujhe%20festival%20health%20camp%20ke%20baare%20mein%20poochna%20hai.">Ask</a>
-</div>
+<div class="not-strip" data-i18n="not_strip">
+<b>Praxoma एक लैब नहीं है।</b> हम टेस्ट बेचकर कमाई नहीं करते — हम आपको सही डॉक्टर, सही लैब और सही सलाह तक पहुंचाते हैं। फैसला हमेशा डॉक्टर का होता है।
 </div>
 
-<div class="grid services" style="margin-top:48px">
-<div class="card"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21h6"/><path d="M12 21v-4"/><path d="M7 17a5 5 0 0 1 10 0"/><path d="M10 3l6 6"/><path d="M8 9l3-3 1 1-3 3z"/><circle cx="7.5" cy="10.5" r="1.4"/></svg><span data-i18n="service_diag_title">Diagnostics</span></h3><p data-i18n="service_diag_desc">Trusted laboratory services.</p></div>
-<div class="card"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 14v4"/><path d="M10 16h4"/></svg><span data-i18n="service_home_title">Home Collection</span></h3><p data-i18n="service_home_desc">Doorstep sample collection.</p></div>
-<div class="card"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 12l2 2 4-4"/><path d="M9 17h6"/></svg><span data-i18n="service_report_title">Digital Reports</span></h3><p data-i18n="service_report_desc">Easy digital access.</p></div>
-<div class="card"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="1.5"/><circle cx="6" cy="3" r="1"/><circle cx="10" cy="3" r="1"/></svg><span data-i18n="service_doctor_title">Doctor Consults</span></h3><p data-i18n="service_doctor_desc">Online or in-clinic, connected to your records.</p></div>
-<div class="card"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 18.5a5 5 0 0 1 0-7l7-7a5 5 0 0 1 7 7l-7 7a5 5 0 0 1-7 0Z"/><path d="M9 9l6 6"/></svg><span data-i18n="service_med_title">Medicines</span></h3><p data-i18n="service_med_desc">Ordered and delivered to your door.</p></div>
-<div class="card"><h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M20 19a4 4 0 0 1-4 4h-2"/></svg><span data-i18n="service_support_title">Human Support</span></h3><p data-i18n="service_support_desc">Real people. Real assistance.</p></div>
+<div class="beta-note" data-i18n="beta_note">
+🚧 यह Praxoma का शुरुआती बीटा वर्जन है — हम सहारनपुर में इसे धीरे-धीरे बना रहे हैं। कुछ सुझाव देना चाहें तो WhatsApp पर बेझिझक बताएं।
 </div>
 
-<div style="text-align:center;margin-top:32px">
-<a class="cat-small-link" data-i18n="cat_small_link" href="./catalogue.html">Already know which test you need? See the rate list →</a>
-</div>
-
-<footer>
-<h3 style="margin-bottom:8px;color:var(--navy)" data-i18n="footer_h3">Built with care.</h3>
-<div data-i18n="footer_p">Growing one connected healthcare service at a time.</div>
+<footer data-i18n="footer">
+Praxoma — Healthcare Navigation, Not a Pathology Lab<br>Saharanpur, Uttar Pradesh
 </footer>
 </div>
 
-<a class="float" href="https://wa.me/917500663006?text=Hello%20Praxoma,%20I%20need%20help.">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.1-1.34A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Z" stroke="#fff" stroke-width="1.4"/></svg>
-WhatsApp
-</a>
-<a class="float-call" href="tel:+917500663006">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-<span data-i18n="call_cta">Call</span>
-</a>
-
-<div class="ios-hint" id="iosHint">
-<span data-i18n="ios_hint">📲 Install Praxoma: tap <b>Share</b>, then <b>Add to Home Screen</b>.</span>
-<button id="iosHintClose" aria-label="Dismiss">✕</button>
-</div>
-
-<script src="./i18n.js"></script>
 <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').then((reg) => {
-      reg.addEventListener('updatefound', () => {
-        const nw = reg.installing;
-        if (!nw) return;
-        nw.addEventListener('statechange', () => {
-          if (nw.state === 'installed' && navigator.serviceWorker.controller) {
-            nw.postMessage({ type: 'SKIP_WAITING' });
-          }
-        });
-      });
-    }).catch(() => {});
-    let refreshed = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (refreshed) return;
-      refreshed = true;
-      window.location.reload();
-    });
+var EN = {
+  beta_badge: "BETA",
+  hero_title: "What's Bothering You?<br><span class=\"accent\">Tell Us.</span>",
+  hero_desc: "We don't sell tests \u2014 we help you reach the right doctor and the right test. Like Google Maps for your health journey, Praxoma helps you find the way.",
+  tagline: "\u201cWe don't diagnose disease. We remove confusion.\u201d",
+  wa_cta: "Tell Us on WhatsApp",
+  call_cta: "Call Now",
+  step1_t: "We Listen",
+  step1_d: "In your own words, no jargon",
+  step2_t: "We Guide",
+  step2_d: "Right doctor or test for you",
+  step3_t: "We Stay With You",
+  step3_d: "From test to report, all the way",
+  symptom_h: "What's Bothering You?",
+  symptom_sub: "Tap what fits \u2014 we'll guide you from there.",
+  s_fever: "Fever",
+  s_fatigue: "Fatigue / Weakness",
+  s_stomach: "Stomach Issues",
+  s_pain: "Body / Joint Pain",
+  s_women: "Women's Health",
+  s_unsure: "Not Sure / Just Want to Ask",
+  not_strip: "<b>Praxoma is not a lab.</b> We don't earn by selling tests \u2014 we connect you to the right doctor, the right lab, and the right advice. The decision always belongs to a qualified doctor.",
+  beta_note: "\u{1F6A7} This is an early beta of Praxoma \u2014 we're building it step by step in Saharanpur. Have feedback? Tell us on WhatsApp, we'd love to hear it.",
+  footer: "Praxoma \u2014 Healthcare Navigation, Not a Pathology Lab<br>Saharanpur, Uttar Pradesh"
+};
+var HI_ORIG = {};
+document.querySelectorAll('[data-i18n]').forEach(function(el){ HI_ORIG[el.getAttribute('data-i18n')] = el.innerHTML; });
+
+function setLang(lang){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    el.innerHTML = (lang === 'en' && EN[key]) ? EN[key] : HI_ORIG[key];
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-pill').forEach(function(btn){
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
 }
-
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = 'inline-flex';
-});
-installBtn.addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  installBtn.style.display = 'none';
-});
-window.addEventListener('appinstalled', () => {
-  installBtn.style.display = 'none';
-});
-
-const isIos = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
-const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-const iosHint = document.getElementById('iosHint');
-if (isIos && !isStandalone) {
-  iosHint.style.display = 'flex';
-}
-document.getElementById('iosHintClose').addEventListener('click', () => {
-  iosHint.style.display = 'none';
+document.querySelectorAll('.lang-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-lang')); });
 });
 </script>
-</body></html>
+</body>
+</html>
